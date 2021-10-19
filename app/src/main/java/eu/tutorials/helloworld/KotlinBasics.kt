@@ -45,4 +45,36 @@ fun main() {
         is String -> println("$x is String")
         else -> println("$x is none of the above")
     }
+
+    //if you switch x to 15, the "do" section will run at least once
+    x = 5
+    do {
+        print(x)
+        x++
+    } while(x <= 10)
+    println("do while loop finished")
+
+    for(num in 1..10) {
+        print(num)
+    }
+    println("")
+    for(i in 1 until 10) {
+        print(i)
+    }
+    println("")
+    for(i in 10 downTo 1 step 2) {
+        print(i)
+    }
+
+    //Nullables
+    var name: String = "Denis"
+    var nullableName : String? = "Denis"
+
+    var len = name.length
+    var len2 = nullableName?.length
+    nullableName?.let{println("name is not null. Length is: " + it.length)}
+
+    //if nullableName isn't null, then assign name to the value of nullableName. Otherwise, assign to the default value: "Guest"
+    //This is callewd the Elvis operator
+    val unchangeableName = nullableName ?: "Guest"
 }
