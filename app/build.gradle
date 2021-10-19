@@ -6,10 +6,13 @@ plugins {
 android {
     compileSdk 31
 
+    //if there are any errors that have to do with Android version or versions in general, consider changing plugin to
+    //targetSdk 31
+    //This sacrifices your ability to run Kotlin files, however
     defaultConfig {
         applicationId "eu.tutorials.helloworld"
         minSdk 16
-        targetSdk 31
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 

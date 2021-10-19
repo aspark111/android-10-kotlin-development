@@ -11,10 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn_click_me = findViewById<Button>(R.id.button)
+        val btnClickMe = findViewById<Button>(R.id.button)
         var myTextView = findViewById<TextView>(R.id.textView2)
         var timesClicked = 0;
-        btn_click_me.setOnClickListener {
+        btnClickMe.setOnClickListener {
             timesClicked += 1;
             myTextView.text = timesClicked.toString()
             Toast.makeText(this@MainActivity, "You clicked me!", Toast.LENGTH_SHORT).show()
