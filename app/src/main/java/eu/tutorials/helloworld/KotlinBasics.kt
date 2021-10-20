@@ -1,6 +1,91 @@
 package eu.tutorials.helloworld
 
+import java.lang.Exception
+import java.lang.IllegalArgumentException
+
+//          primary constructor
+class Person constructor(firstName: String = "John", lastName: String = "Doe") {
+    var age : Int? = null
+    var hobby: String = "watching Netflix"
+    var firstName: String? = null
+
+    init {
+        this.firstName = firstName
+        println("Person created")
+    }
+
+    //secondary constructor
+    constructor(firstName: String, lastName: String, age: Int) : this(firstName, lastName) {
+        this.age = age
+    }
+
+    fun stateHobby() {
+        println("My hobby is $hobby")
+    }
+}
+
+open class Vehicle() {
+
+}
+
+class Car() : Vehicle() {
+    //tells program that this variable will be initialized later in the program
+    //It will error out with an Uninitialized exception if not initialized
+    lateinit var owner: String
+
+
+
+    val myBrand : String = "BMW"
+        //Custom getter
+        get() {
+            return field.lowercase();
+        }
+
+//    Value: Conventionally, we choose the name of the setter parameter as value, but we can choose a different name if we want.
+//    The value parameter contains the value that a property is assigned to.
+//    Backing Field (field): It allows storing the property value in memory possible.
+//    When we initialize a property with a value, the initialized value is written to the backing field of that property.
+    var maxSpeed: Int = 250
+        get() = field
+        set(value) {
+            field = if(value > 0) value else throw IllegalArgumentException("Max speed must be greater than 0")
+        }
+
+    var myModel : String = "M5"
+        //can only be changed inside the class itself.
+        //When you try to modify a private class variable in another function such as the main function,
+        //the program will error out
+        private set
+
+    init {
+        this.myModel = "M3"
+        this.owner = "Frank"
+    }
+}
+//data classes' primary function is to hold data. It doesn't have any functions inside of it - no initialized variables;
+//just data
+data class User(val id: Long, val name: String)
+
 fun main() {
+    var user = User(1, "Alex")
+    var updated = user.copy(name="Denis")
+    println("Component 1 of data class User: ${user.component1()}") //prints 1
+    println("Component 2 of data class User: ${user.component2()}") //prints Alex
+    val (userId, userName) = updated
+    print("Id ${userId}, Name ${userName}")
+
+    //class object
+    var denis = Person("Denis", "Panjuta", 31)
+    denis.hobby = "to skateboard"
+    denis.age = 32
+    denis.stateHobby()
+    var default = Person()
+    println(default.firstName)
+    var differentLastName = Person(lastName = "Smith")
+
+    var myCar = Car()
+    println("brand is: ${myCar.myBrand}")
+
     //var = variable that can be changed
     //val = variable that cannot be changed
     println("Hello World");
