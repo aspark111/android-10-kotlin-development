@@ -25,7 +25,7 @@ class Person constructor(firstName: String = "John", lastName: String = "Doe") {
 }
 
 open class Vehicle() {
-
+    open var distance = 0;
 }
 
 class Car() : Vehicle() {
@@ -65,6 +65,21 @@ class Car() : Vehicle() {
 //data classes' primary function is to hold data. It doesn't have any functions inside of it - no initialized variables;
 //just data
 data class User(val id: Long, val name: String)
+
+interface Drivable {
+    val maxSpeed: Double;
+    fun drive(): String
+    fun brake(){
+        println("The drivable is braking")
+    }
+}
+
+class Motorcycle(val make : String = "", val model: String = "", override val maxSpeed: Double) : Drivable {
+    override fun drive(): String {
+        return "Implementing the interface drive"
+    }
+
+}
 
 fun main() {
     var user = User(1, "Alex")
