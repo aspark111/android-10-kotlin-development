@@ -1,0 +1,79 @@
+ARRAYLISTS
+- Used to create a dynamic array - can increase/decrease size according to requirement
+- Arraylist class provides read and write functionalities
+- Arraylist follows the sequence of insertion order
+- Arraylists are not synchronized and it may contain duplicate elements
+
+- ArrayList<E>() is used to create an empty arraylist
+- ArrayList(capacity: Int) is used to create an Arraylist if a specified capacity
+- ArrayList(elements: Collection<E>) is used to create an Arraylist filled with the elements of a collection
+
+-Functions of ArrayList:
+-   open fun add(element: E): Boolean -> used to add the specific element into the collection
+-   open fun clear() -> used to remove all elements from the collection
+-   open fun get(index: Int): E -> used to return the element at the specified index in the list
+-   open fun remove(element: E): Boolean -> used to remove a single instance of the specified element from the current collection if it's available
+
+
+LAMBDA EXPRESSIONS
+- Lambda is a function that has no name
+- Lambda expressions and anonymous functions are 'function literals', i.e. functions that are not declared, but passed immediately as an expression
+- Lambda is defined with curly braces {} which take variables as a parameter and a body of a function
+- The body of a function is written after thje variable followed by -> operator
+- Syntax: {variable(s) -> body of lambda}
+
+- Ex:
+-   val sum: (Int, Int) -> Int = {a: Int, b: Int -> a+b}
+-   println(sum(10,5))
+- Ex:
+-   val sum = {a:Int, b:Int -> println(a+b)}
+-   sum(10,5)
+
+VISIBILITY MODIFIERS
+- Visibility Modifiers are the keywords which are used to restrict the sue of classes, interfaces, methods, and properties in Kotlin
+- These modifiers are used at multiple places such as class header or method body
+- Visibility modifiers are categorized into four different types:
+-   public, private, protected, and internal
+
+- Public Modifiers
+-   A public modifier element is accessible from everywhere in the project
+-   It is a default modifier in Kotlin. If any class, interface, etc. are not specified with any access/visibility modifier
+        then that class, interface, etc. is used in a public scope.
+-   All public declarations can be placed at the top of the file
+-   If a member of a class is not specified then it is by default public.
+
+- Private modifiers
+-   A private modifier allows the element to be accessible only within the block in which properties, fields, etc. are declared
+-   The private modifier declaration does not allow access outside the scope
+-   A private package can be accessible within that specific file
+
+- Internal Modifier
+-   The internal modifier is a feature in Kotlin, which is not available in Java.
+-   The internal modifier makes the field visible only inside the module in which it is implemented
+-   All the fields are declared as internal which are accessible only inside the module in whic they are implemented
+
+- Open Keyword
+-   In Kotlin, all classes are final by default. They can't be inherited by default.
+-   In Java, it's the opposite - you have to make your class final explicitly
+-   Use the open keyword to make your class inheritable
+
+- Protected Modifier
+-   A protected modifier with a class or an interface allows visibility to its class or subclass only
+-   A protected declaration (when overriden) in tis subclass is also protected unless it is explicitly changed
+-   The protected modifier cannot be declared at top level (for packages)
+
+
+NESTED AND INNER CLASS
+-   Nested class is a class inside another class
+-   In Kotlin, a nested class is by default static, so its data members and member functions can be accessed
+        without creating an object of the class
+-   Nested classes cannot access the data members of outer classes
+
+-   Inner class is a class which is created inside another class with keyword "inner"
+-   In other words, we can say that a nested class which is marked as "inner" is called inner class
+-   Inner class cannot be declared inside interfaces or non-inner nested classes.
+-   The advantage of inner class over nested class is that it is able to access members of tis outer class even if its private.
+
+
+
+
