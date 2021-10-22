@@ -75,5 +75,25 @@ NESTED AND INNER CLASS
 -   The advantage of inner class over nested class is that it is able to access members of tis outer class even if its private.
 
 
+- UNSAFE/SAFE CAST OPERATORS
+- Sometimes it is not possible to ccast a variable and it throws an exception; this is called an unsafe cast.
+- the unsafe cast is performed by the infix operator "as"
+- Trying to cast an integer value fo the Any type into a string leads to a ClassCastException
+- Ex:
+-   val obj: Any = 123
+-   val str: String = obj as String
+-   //Throws java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
 
+- Nullable for casting to work
+- Source and target variables need to be a nullable for casting to work
+
+-Safe cast operator
+- "as?" provides a safe cast operatiohn to safely cast to a type
+- it returns null if casting is not possible rather than throwing a ClassCastException
+
+- EXCEPTION HANDLING
+- You can have multiple catch blocks in a try/catch/finally block!
+- Each catch can be for a different type of error.
+- The requirement of NESTED TRY CATCH BLOCKS arises when a block of code generates an exception
+    and within that block another code statement also generates another exception
 
